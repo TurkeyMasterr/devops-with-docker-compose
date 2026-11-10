@@ -1,0 +1,30 @@
+# FRONTEND
+FROM ubuntu:24.04
+
+# Install node.js
+RUN apt-get update && apt-get install -y curl
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash &&  apt-get install -y nodejs
+
+# Install serve package to serve the project in a specific port
+RUN npm install -g serve
+
+# Set the working directory and copy all the project source files into it
+WORKDIR /usr/src/app
+COPY . .
+
+# Verify nodejs installation
+RUN node -v && npm -v
+
+# Install npm package(s), it depends on the package.json file in the source files so the copy has to come first.
+RUN npm install
+
+# The environment variable for the frontend is allowed to send requests to
+ENV REACT_APP_BACKEND_URL=http://localhost:8080
+
+# Run the project
+RUN npm run build
+
+EXPOSE 5001
+
+CMD ["serve", "-s", "-l", "5001", "build"]
+
