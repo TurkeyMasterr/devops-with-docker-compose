@@ -6,9 +6,12 @@ services:
 
   backend:
     image: turkeymasterr/backend:latest
+    restart: unless-stopped
     environment:
-      - REQUEST_ORIGIN=http://localhost:5001
+      - REDIS_HOST=redis
     ports:
       - 8080:8080
+  redis:
+    image: redis:8.10.3-alpine3.23
 
 
