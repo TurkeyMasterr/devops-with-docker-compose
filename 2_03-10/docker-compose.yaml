@@ -22,7 +22,5 @@ services:
     environment:
       POSTGRES_PASSWORD: "0000"
     volumes:
-      - database:/var/lib/postgresql
+      - ./database:/var/lib/postgresql:z
 
-volumes:
-  database:
