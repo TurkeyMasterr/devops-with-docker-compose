@@ -21,4 +21,8 @@ services:
     restart: unless-stopped
     environment:
       POSTGRES_PASSWORD: "0000"
+    volumes:
+      - database:/var/lib/postgresql
 
+volumes:
+  database:
