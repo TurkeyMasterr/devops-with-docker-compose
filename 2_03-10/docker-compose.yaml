@@ -8,10 +8,17 @@ services:
     image: turkeymasterr/backend:latest
     restart: unless-stopped
     environment:
+      - POSTGRES_HOST=db
+      - POSTGRES_PASSWORD=0000
       - REDIS_HOST=redis
     ports:
       - 8080:8080
   redis:
     image: redis:8.10.3-alpine3.23
-
+  
+  db:
+    image: postgres:18
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: "0000"
 
