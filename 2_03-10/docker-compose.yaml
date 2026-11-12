@@ -1,8 +1,8 @@
 services:
   frontend:
     image: turkeymasterr/frontend:latest
-    ports: 
-      - 5001:5001
+#    ports: 
+#      - 5001:5001
 
   backend:
     image: turkeymasterr/backend:latest
@@ -12,8 +12,8 @@ services:
       - POSTGRES_PASSWORD=0000
       - REDIS_HOST=redis
       - REQUEST_ORIGIN=http://localhost:8000
-    ports:
-      - 8080:8080
+#    ports:
+#      - 8080:8080
   redis:
     image: redis:8.10.3-alpine3.23
   
