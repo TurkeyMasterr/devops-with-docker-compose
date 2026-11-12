@@ -19,7 +19,7 @@ RUN node -v && npm -v
 RUN npm install
 
 # The environment variable for the frontend is allowed to send requests to
-ENV REACT_APP_BACKEND_URL=http://localhost:8080
+ENV REACT_APP_BACKEND_URL=http://localhost:8000/api
 
 # Run the project
 RUN npm run build
