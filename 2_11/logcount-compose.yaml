@@ -1,0 +1,10 @@
+services:
+  logcount:
+    image:
+      turkeymasterr/logcount
+    command:
+      ["sample.log"]
+    volumes: 
+      - ./:/usr/src/app
+    security_opt:
+      - label=disable

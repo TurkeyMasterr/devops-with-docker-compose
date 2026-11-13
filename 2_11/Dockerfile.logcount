@@ -1,0 +1,8 @@
+FROM python:3.12.16-alpine3.24
+
+WORKDIR /usr/src/app
+
+COPY logcount.py .
+
+ENTRYPOINT ["python", "logcount.py"]
+
